@@ -1,0 +1,28 @@
+server:
+  port: 8082
+  tomcat:
+    max-threads: 800
+    uri-encoding: UTF-8
+
+spring:
+  application:
+    name: swagger2word
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false
+    servlet:
+      content-type: text/html
+    enabled: true
+    encoding: UTF-8
+    mode: HTML5
+
+# Swagger json url address
+swagger.url: http://localhost/v2/api-docs?group=demo
+  #http://192.168.100.132:8080/ei-sys/v2/api-docs
+
+
+
+
+
+

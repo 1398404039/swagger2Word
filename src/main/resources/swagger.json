@@ -1,0 +1,6178 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "本系统用于北京数起科技有限责任公司",
+		"version": "1.0",
+		"title": "用于构建RESTful API",
+		"termsOfService": "http://www.louddt.com",
+		"license": {}
+	},
+	"host": "localhost:8080",
+	"basePath": "/ei-sys",
+	"tags": [{
+		"name": "dict-controller",
+		"description": "码表-API"
+	}, {
+		"name": "online-controller",
+		"description": "在线统-API"
+	}, {
+		"name": "user-controller",
+		"description": "用户-API"
+	}, {
+		"name": "menu-controller",
+		"description": "菜单-API"
+	}, {
+		"name": "obj-controller",
+		"description": "Obj Controller"
+	}, {
+		"name": "demo-controller",
+		"description": "Demo Controller"
+	}, {
+		"name": "dept-controller",
+		"description": "组织-API"
+	}, {
+		"name": "job-controller",
+		"description": "职务-API"
+	}, {
+		"name": "log-manager-controller",
+		"description": "日志管理API"
+	}, {
+		"name": "config-controller",
+		"description": "Config Controller"
+	}, {
+		"name": "login-controller",
+		"description": "登录-API"
+	}, {
+		"name": "role-controller",
+		"description": "角色-API"
+	}],
+	"paths": {
+		"/config/addConfig": {
+			"post": {
+				"tags": ["config-controller"],
+				"summary": "添加配置接口",
+				"description": "添加配置接口",
+				"operationId": "addConfigUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"xx\",\"name\":\"xxx\",\"value\":\"xxx\",\"description\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/config/checkName": {
+			"post": {
+				"tags": ["config-controller"],
+				"summary": "添加配置接口",
+				"description": "添加配置接口",
+				"operationId": "checkNameUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"name\":\"SYS_PWD\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/config/delConfig": {
+			"post": {
+				"tags": ["config-controller"],
+				"summary": "删除配置接口",
+				"description": "删除配置接口",
+				"operationId": "delConfigUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3,4,5,6\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/config/initTable": {
+			"post": {
+				"tags": ["config-controller"],
+				"summary": "展现表格",
+				"description": "展现表格",
+				"operationId": "initTableUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "map",
+					"description": "{\"rows\":10,\"page\":\"1\",\"sord\":\"desc\",\"keyWord\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "object"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?PageInfo?Config??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/config/queryConfigById": {
+			"post": {
+				"tags": ["config-controller"],
+				"summary": "根据id查询配置接口",
+				"description": "根据id查询配置接口",
+				"operationId": "queryConfigByIdUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Config?"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/config/test": {
+			"post": {
+				"tags": ["config-controller"],
+				"summary": "测试dubbo",
+				"description": "根据id查询配置接口",
+				"operationId": "testUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Config?"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/config/updateConfig": {
+			"post": {
+				"tags": ["config-controller"],
+				"summary": "修改配置接口",
+				"description": "修改配置接口",
+				"operationId": "updateConfigUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"xx\",\"name\":\"xxx\",\"value\":\"xxx\",\"description\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/demo/demoDubbo/{pageNo}/{pageSize}": {
+			"post": {
+				"tags": ["demo-controller"],
+				"summary": "demo dubbo测试接口",
+				"description": "demoTest dubbo测试接口",
+				"operationId": "demoDubboUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "pageNo",
+					"in": "path",
+					"description": "pageNo",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "pageSize",
+					"in": "path",
+					"description": "pageSize",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?object?"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/demo/demoTest/{pageNo}/{pageSize}": {
+			"post": {
+				"tags": ["demo-controller"],
+				"summary": "demo测试接口",
+				"description": "demoTest测试接口",
+				"operationId": "demoTestUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "pageNo",
+					"in": "path",
+					"description": "pageNo",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "pageSize",
+					"in": "path",
+					"description": "pageSize",
+					"required": true,
+					"type": "integer",
+					"format": "int32"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?object?"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/addDept": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "添加组织",
+				"description": "添加组织",
+				"operationId": "addDeptUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/checkDeptCode": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "验证单位代码",
+				"description": "验证单位代码",
+				"operationId": "checkDeptCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"120000\",\"parentCode\":\"1234\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/clickDeptTree": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "点击组织树",
+				"description": "点击组织树",
+				"operationId": "clickDeptTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?PageInfo?Dept??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/deleteDept": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "删除组织",
+				"description": "删除组织",
+				"operationId": "deleteDeptUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/getAutoCode": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "获取自动生成的单位代码",
+				"description": "获取自动生成的单位代码",
+				"operationId": "getAutoObjCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/initDeptTree": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "加载组织树",
+				"description": "加载组织树",
+				"operationId": "initDeptTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/initDeptTreeFormanager": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "加载组织树项目管理",
+				"description": "加载组织树",
+				"operationId": "initDeptTreeFormanagerUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/initParent": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "上级单位选择框",
+				"description": "上级单位选择框",
+				"operationId": "initParentUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"120000\",\"parentCode\":\"1234\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/searchDeptTree": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "查询组织树",
+				"description": "查询组织树",
+				"operationId": "searchDeptTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"keyWord\":\"120000\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/searchDeptTreeFormanager": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "查询组织树项目管理",
+				"description": "查询组织树",
+				"operationId": "searchDeptTreeFormanagerUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"keyWord\":\"120000\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/selectById": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "根据Id查",
+				"description": "根据Id查",
+				"operationId": "selectByIdUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/test": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "测试dubbo",
+				"description": "根据id查询配置接口",
+				"operationId": "testUsingPOST_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/updateDept": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "修改组织",
+				"description": "修改组织",
+				"operationId": "updateDeptUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dept/updateStatus": {
+			"post": {
+				"tags": ["dept-controller"],
+				"summary": "修改组织状态",
+				"description": "修改组织状态",
+				"operationId": "updateStatusUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\",\"enabled\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/addKeyValue": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "添加类别",
+				"description": "添加类别",
+				"operationId": "addKeyValueUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"name\":\"xxx\",\"code\":\"xxx\",\"key\":\"xxx\",\"value\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/addNameCode": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "添加大类别",
+				"description": "添加类别",
+				"operationId": "addNameCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"name\":\"xxx\",\"code\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/checkCodeName": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "检查name,code不能重复",
+				"description": "检查name,code不能重复",
+				"operationId": "checkCodeNameUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"name\":\"\",\"code\":\"\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/checkKey": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "检查key不能重复",
+				"description": "检查key不能重复",
+				"operationId": "checkKeyUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"key\":\"1\",\"code\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/clickCodeTree": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "点击详细的码表树",
+				"description": "点击详细的码表树",
+				"operationId": "clickCodeTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"key\":\"1\",\"code\":\"1\",\"page\":1,\"rows\":10,\"sidx\":\"\",\"sord\":\"\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?PageInfo?Dict??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/delNameCodes": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "查询删除",
+				"description": "查询删除",
+				"operationId": "delNameCodesUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/deleteCode": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "删除码表详细信息",
+				"description": "删除码表详细信息",
+				"operationId": "deleteCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/deleteNameCode": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "删除类别",
+				"description": "删除类别",
+				"operationId": "deleteNameCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/getAll": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "前台获取列表",
+				"description": "带child的",
+				"operationId": "getUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/getLastAll": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "前台获取末级列表",
+				"description": "带child的",
+				"operationId": "getLastAllUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/getZtree": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "前台获取列表",
+				"description": "带child的",
+				"operationId": "getZtreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/initCodeTree": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "加载详细的码表树",
+				"description": "加载详细的码表树",
+				"operationId": "initCodeTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/initParentTree": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "获取上级选择树",
+				"description": "获取上级选择树",
+				"operationId": "initParentTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"name\":\"1\",\"code\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/search": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "搜索框大类",
+				"description": "查名称和描述",
+				"operationId": "searchUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"keyWord\":\"110000\",\"page\":1,\"rows\":10,\"sidx\":\"\",\"sord\":\"\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?PageInfo?Dict??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/searchCodeTree": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "查询详细的码表树",
+				"description": "查询详细的码表树",
+				"operationId": "searchCodeTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"name\":\"1\",\"code\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/searchList": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "搜索框小类",
+				"description": "查名称和描述",
+				"operationId": "searchListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"keyWord\":\"110000\",\"page\":1,\"rows\":10,\"sidx\":\"\",\"sord\":\"\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?PageInfo?Dict??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/selectById": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "根据id查",
+				"description": "根据id查",
+				"operationId": "selectByIdUsingPOST_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/selectNameCode": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "开始展现页面",
+				"description": "开始展现页面",
+				"operationId": "selectNameCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"page\":1,\"rows\":10,\"sidx\":\"\",\"sord\":\"\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?PageInfo?Dict??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/test": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "dubbo测试",
+				"description": "根据id查",
+				"operationId": "selectByIdtestUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/updateCode": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "修改码表详细信息",
+				"description": "修改码表详细信息",
+				"operationId": "updateCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/dict/updateNameCode": {
+			"post": {
+				"tags": ["dict-controller"],
+				"summary": "修改类别",
+				"description": "修改类别",
+				"operationId": "updateNameCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"nameold\":\"1\",\"codeold\":\"1\",\"namenew\":\"1\",\"codenew\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/job/addJob": {
+			"post": {
+				"tags": ["job-controller"],
+				"summary": "添加职务",
+				"description": "添加职务",
+				"operationId": "addJobUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/UserJob"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/job/deleteJob": {
+			"post": {
+				"tags": ["job-controller"],
+				"summary": "删除职务",
+				"description": "删除职务",
+				"operationId": "deleteJobUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\n  \n  \"id\": \"a0c9760ffc0645cba91dac70d97c496e\"\n \n}",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/UserJob"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/job/getJobList": {
+			"post": {
+				"tags": ["job-controller"],
+				"summary": "获取职务列表不分页",
+				"description": "获取职务列表不分页",
+				"operationId": "getJobListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/UserJob"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/job/getJobListByPage": {
+			"post": {
+				"tags": ["job-controller"],
+				"summary": "获取职务列表分页",
+				"description": "获取职务列表分页",
+				"operationId": "getJobListByPageUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/UserJob"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/job/selectById": {
+			"post": {
+				"tags": ["job-controller"],
+				"summary": "根据Id查职务",
+				"description": "根据Id查职务",
+				"operationId": "selectByIdUsingPOST_2",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\n  \n  \"id\": \"a0c9760ffc0645cba91dac70d97c496e\"\n \n}",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/UserJob"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/job/updateJob": {
+			"post": {
+				"tags": ["job-controller"],
+				"summary": "修改职务",
+				"description": "修改职务",
+				"operationId": "updateJobUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"$ref": "#/definitions/UserJob"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/logManager/querySysLogList": {
+			"post": {
+				"tags": ["log-manager-controller"],
+				"summary": "查询日志列表",
+				"description": "查询日志列表",
+				"operationId": "querySysLogListUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "map",
+					"description": "{\n \n  \"page\": \"1\",\n  \"rows\": \"50\",\n  \"startTime\": \"2019-10-29T15:52:54.492Z\",\n  \"endTime\": \"2019-10-29T16:52:54.492Z\",\n  \"type\":\"查询\"\n}",
+					"required": false,
+					"schema": {
+						"$ref": "#/definitions/SysLog"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/login/getLoginUser": {
+			"post": {
+				"tags": ["login-controller"],
+				"summary": "获取登录用户信息",
+				"description": "获取登录用户信息",
+				"operationId": "getLoginUserUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/login/login": {
+			"post": {
+				"tags": ["login-controller"],
+				"summary": "登录接口",
+				"description": "登录接口",
+				"operationId": "loginUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"login\":\"superadmin\",\"password\":\"123456\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/login/outLogin": {
+			"post": {
+				"tags": ["login-controller"],
+				"summary": "退出登录",
+				"description": "退出登录",
+				"operationId": "outLoginUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/login/updatePWD": {
+			"post": {
+				"tags": ["login-controller"],
+				"summary": "修改密码",
+				"description": "修改密码",
+				"operationId": "updatePWDUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"old\":\"123456\",\"new\":\"123456\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/login/userHasMenu": {
+			"post": {
+				"tags": ["login-controller"],
+				"summary": "获取用户拥有的菜单",
+				"description": "获取用户拥有的菜单",
+				"operationId": "userHasMenuUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"menuId\":\"123\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/menu/addMenu": {
+			"post": {
+				"tags": ["menu-controller"],
+				"summary": "添加菜单",
+				"description": "添加菜单",
+				"operationId": "addMenuUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/menu/clickMenuTree": {
+			"post": {
+				"tags": ["menu-controller"],
+				"summary": "点击菜单树",
+				"description": "点击菜单树",
+				"operationId": "clickMenuTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\",\"page\":1,\"rows\":10,\"sidx\":\"\",\"sord\":\"\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?PageInfo?Menu??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/menu/deleteMenu": {
+			"post": {
+				"tags": ["menu-controller"],
+				"summary": "删除菜单",
+				"description": "删除菜单",
+				"operationId": "deleteMenuUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/menu/initMenuTree": {
+			"post": {
+				"tags": ["menu-controller"],
+				"summary": "加载菜单树",
+				"description": "加载菜单树",
+				"operationId": "initMenuTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/menu/initParentMenu": {
+			"post": {
+				"tags": ["menu-controller"],
+				"summary": "加载上级菜单",
+				"description": "加载上级菜单树",
+				"operationId": "initParentMenuTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/menu/searchMenuTree": {
+			"post": {
+				"tags": ["menu-controller"],
+				"summary": "查询菜单树",
+				"description": "查询菜单树",
+				"operationId": "searchMenuTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"keyWord\":\"120000\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/menu/selectById": {
+			"post": {
+				"tags": ["menu-controller"],
+				"summary": "根据id查",
+				"description": "根据id查",
+				"operationId": "selectByIdUsingPOST_3",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/menu/sortMenuTree": {
+			"post": {
+				"tags": ["menu-controller"],
+				"summary": "菜单树排序",
+				"description": "删除菜单提示信息",
+				"operationId": "sortMenuTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/menu/test": {
+			"post": {
+				"tags": ["menu-controller"],
+				"summary": "dubbo测试",
+				"description": "根据id查",
+				"operationId": "testUsingPOST_3",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/menu/updateMenu": {
+			"post": {
+				"tags": ["menu-controller"],
+				"summary": "修改菜单",
+				"description": "修改菜单",
+				"operationId": "updateMenuUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/menu/updateStatus": {
+			"post": {
+				"tags": ["menu-controller"],
+				"summary": "修改菜单状态",
+				"description": "修改菜单状态",
+				"operationId": "updateStatusUsingPOST_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\",\"enabled\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/addObj": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "添加被审计单位",
+				"description": "添加被审计单位",
+				"operationId": "addObjUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "id",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "name",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "code",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "type",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "isEnd",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "enabled",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "sortIndex",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "parentCode",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "plate",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "gsCode",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "jqCode",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "hrCode",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "unitLevel",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "description",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "officeManager",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "address",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "registerMoney",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "createBy",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "createTime",
+					"in": "query",
+					"required": false,
+					"type": "string",
+					"format": "date-time"
+				}, {
+					"name": "createDate",
+					"in": "query",
+					"required": false,
+					"type": "string",
+					"format": "date-time"
+				}, {
+					"name": "mainBusiness",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "financialPerson",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "financialPhone",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "parentName",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/checkObjCode": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "验证单位代码",
+				"description": "验证单位代码",
+				"operationId": "checkObjCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/clickObjTree": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "点击单位树",
+				"description": "点击单位树",
+				"operationId": "clickObjTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "map",
+					"description": "map",
+					"required": false,
+					"schema": {
+						"type": "object"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?PageInfo?Obj??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/deleteObj": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "删除单位",
+				"description": "删除单位",
+				"operationId": "deleteObjUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/getAutoCode": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "获取自动生成的单位代码",
+				"description": "获取自动生成的单位代码",
+				"operationId": "getAutoObjCodeUsingPOST_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/getUnitLevel": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "获取自动生成的单位级次",
+				"description": "获取自动生成的单位级次",
+				"operationId": "getUnitLevelUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"code\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/impFile": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "导入行政区划文件",
+				"description": "导入行政区划文件",
+				"operationId": "impFileUsingPOST",
+				"consumes": ["multipart/form-data"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "mfile",
+					"in": "formData",
+					"description": "上传文件",
+					"required": true,
+					"type": "file"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/initObjTree": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "加载单位树",
+				"description": "加载单位树",
+				"operationId": "initObjTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/initObjTreeAll": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "加载所有单位树",
+				"description": "加载所有单位树",
+				"operationId": "initObjTreeAllUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/initObjTreeByProjectId": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "根据项目id加载单位树",
+				"description": "根据项目id加载单位树",
+				"operationId": "initObjTreeByProjectIdUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"projectId\":\"xxx\",\"id\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/initParent": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "加载上级单位",
+				"description": "加载上级单位树",
+				"operationId": "initParentUsingPOST_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"keyWord\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/searchObjTree": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "查询单位树",
+				"description": "查询单位树",
+				"operationId": "searchObjTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/searchObjTreeAll": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "查询所有单位树",
+				"description": "查询所有单位树",
+				"operationId": "searchObjTreeAllUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/selectById": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "根据Id查",
+				"description": "根据Id查",
+				"operationId": "selectByIdUsingPOST_4",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/selectObjByUid": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "通过userId获取所在单位及其下级单位",
+				"description": "通过userId获取所在单位及其下级单位",
+				"operationId": "selectObjByUidUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?List?Tree??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/selectSonObj": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "通过code获取直属下级单位",
+				"description": "通过code获取直属下级单位",
+				"operationId": "selectSonObjUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"parentCode\":\"xxx\",\"keyWord\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?List?Obj??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/test": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "dubbo测试",
+				"description": "根据Id查",
+				"operationId": "testUsingPOST_4",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"xxx\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/updateObj": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "修改被审计单位",
+				"description": "修改被审计单位",
+				"operationId": "updateObjUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"name": "id",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "name",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "code",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "type",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "isEnd",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "enabled",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "sortIndex",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "parentCode",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "plate",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "gsCode",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "jqCode",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "hrCode",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "unitLevel",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "description",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "officeManager",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "address",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "registerMoney",
+					"in": "query",
+					"required": false,
+					"type": "integer",
+					"format": "int32"
+				}, {
+					"name": "createBy",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "createTime",
+					"in": "query",
+					"required": false,
+					"type": "string",
+					"format": "date-time"
+				}, {
+					"name": "createDate",
+					"in": "query",
+					"required": false,
+					"type": "string",
+					"format": "date-time"
+				}, {
+					"name": "mainBusiness",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "financialPerson",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "financialPhone",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}, {
+					"name": "parentName",
+					"in": "query",
+					"required": false,
+					"type": "string"
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/obj/updateStatus": {
+			"post": {
+				"tags": ["obj-controller"],
+				"summary": "修改被审计单位状态",
+				"description": "修改被审计单位状态",
+				"operationId": "updateStatusUsingPOST_2",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/online/getOnlineUser": {
+			"post": {
+				"tags": ["online-controller"],
+				"summary": "获取在线用户信息",
+				"description": "获取在线用户信息",
+				"operationId": "getOnlineUserUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"page\":1,\"rows\":10,\"sidx\":\"\",\"sord\":\"\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/addMenu": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "添加菜单",
+				"description": "加载人员",
+				"operationId": "addMenuUsingPOST_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\n\"roleId\":\"4e91aad00b434e0586154c8556f65f30\",\n\"objCode\":\"1001\",\n\"deptCode\":\"100140\",\n\"pageNo\":1,\n\"pageSize\":10\n}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/addRole": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "添加角色",
+				"description": "添加角色",
+				"operationId": "addRoleUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/addUser": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "添加人员",
+				"description": "加载人员",
+				"operationId": "addUserUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\n\"roleId\":\"4e91aad00b434e0586154c8556f65f30\",\n\"objCode\":\"1001\",\n\"deptCode\":\"100140\",\n\"pageNo\":1,\n\"pageSize\":10\n}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/checkName": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "校验角色名称",
+				"description": "添加角色",
+				"operationId": "checkNameUsingPOST_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\",\"enabled\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/clickRoleTreeRoot": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "加载角色列表",
+				"description": "点击角色树根节点",
+				"operationId": "clickRoleTreeRootUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "map",
+					"description": "{\"id\":\"1\",\"page\":1,\"rows\":10,\"sidx\":\"\",\"sord\":\"\"}",
+					"required": false,
+					"schema": {
+						"type": "object"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?PageInfo?Role??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/deleteRole": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "删除角色",
+				"description": "删除角色",
+				"operationId": "deleteRoleUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/initDept": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "加载部门过滤",
+				"description": "加载人员",
+				"operationId": "initDeptUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\n\"roleId\":\"4e91aad00b434e0586154c8556f65f30\",\n\"objCode\":\"1001\",\n\"deptCode\":\"100140\",\n\"pageNo\":1,\n\"pageSize\":10\n}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/initMenu": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "加载菜单",
+				"description": "加载人员",
+				"operationId": "initMenuUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\n\"roleId\":\"4e91aad00b434e0586154c8556f65f30\",\n\"objCode\":\"1001\",\n\"deptCode\":\"100140\",\n\"pageNo\":1,\n\"pageSize\":10\n}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/initTree": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "加载角色树",
+				"description": "人员部门选择列表",
+				"operationId": "initTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/initType": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "角色加载角色类型列表",
+				"description": "人员部门选择列表",
+				"operationId": "initTypeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/initUser": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "加载人员",
+				"description": "加载人员",
+				"operationId": "initUserUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\n\"roleId\":\"4e91aad00b434e0586154c8556f65f30\",\n\"objCode\":\"1001\",\n\"deptCode\":\"100140\",\n\"pageNo\":1,\n\"pageSize\":10\n}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/initUserNew": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "角色用户回显",
+				"description": "角色用户回显",
+				"operationId": "initUserNewUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "map",
+					"description": "{\n\"roleId\":\"4e91aad00b434e0586154c8556f65f30\",\n\"objCode\":\"1001\",\n\"deptCode\":\"100140\",\n\"pageNo\":1,\n\"pageSize\":10\n}",
+					"required": false,
+					"schema": {
+						"type": "object"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/queryRoleByUserId": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "根据人员id获取用户角色",
+				"description": "根据人员id获取用户角色",
+				"operationId": "queryRoleByUserIdUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?List?RoleUser??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/searchTree": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "搜索角色树",
+				"description": "人员部门选择列表",
+				"operationId": "searchTreeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"keyWord\":\"120000\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/selectById": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "根据id查",
+				"description": "根据id查",
+				"operationId": "selectByIdUsingPOST_5",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/test": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "buddo测试",
+				"description": "根据id查",
+				"operationId": "testUsingPOST_5",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/updateRole": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "修改角色",
+				"description": "修改角色",
+				"operationId": "updateRoleUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/role/updateStatus": {
+			"post": {
+				"tags": ["role-controller"],
+				"summary": "修改角色状态",
+				"description": "修改角色状态",
+				"operationId": "updateStatusUsingPOST_3",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\",\"enabled\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/addUser": {
+			"post": {
+				"tags": ["user-controller"],
+				"summary": "添加用户",
+				"description": "添加用户",
+				"operationId": "addUserUsingPOST_1",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/checkLoginName": {
+			"post": {
+				"tags": ["user-controller"],
+				"summary": "验证登录名是否相同接口",
+				"description": "验证登录名是否相同接口",
+				"operationId": "checkLoginNameUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"login\":\"admin\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/deleteUser": {
+			"post": {
+				"tags": ["user-controller"],
+				"summary": "删除人员",
+				"description": "删除人员",
+				"operationId": "deleteUserUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/initParent": {
+			"post": {
+				"tags": ["user-controller"],
+				"summary": "人员部门选择列表",
+				"description": "人员部门选择列表",
+				"operationId": "initParentUsingPOST_2",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"login\":\"admin\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/initUpdateDept": {
+			"post": {
+				"tags": ["user-controller"],
+				"summary": "修改人员部门列表加载",
+				"description": "人员部门选择列表",
+				"operationId": "initUpdateDeptUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"login\":\"admin\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/queryUserInRole": {
+			"post": {
+				"tags": ["user-controller"],
+				"summary": "查询符合某个角色的人员信息",
+				"description": "查询符合某个角色的人员信息，现在固定为查询部门领导角色的人员，部门领导角色为5，被审计单位联系人角色id为6",
+				"operationId": "queryUserInfoInRolemethodUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "param",
+					"description": "{\"roleId\":\"角色id\",\"projectId\":\"项目id\",\"key\":\"用户姓名、部门名称、机构名称模糊查询\",\"pageNo\":\"页码\",\"pageSize\":\"每页显示条数\"}",
+					"required": false,
+					"schema": {
+						"type": "object"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?PageInfo?Map?string,object???"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/selectByDeptCode": {
+			"post": {
+				"tags": ["user-controller"],
+				"summary": "点击部门树查人",
+				"description": "点击部门树查人",
+				"operationId": "selectByDeptCodeUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"deptCode\":\"xx\",\"objCode\":\"sss\",\"page\":1,\"rows\":10}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?PageInfo?User??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/selectById": {
+			"post": {
+				"tags": ["user-controller"],
+				"summary": "根据Id查",
+				"description": "根据Id查",
+				"operationId": "selectByIdUsingPOST_6",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/test": {
+			"post": {
+				"tags": ["user-controller"],
+				"summary": "dubbo",
+				"description": "根据Id查",
+				"operationId": "testUsingPOST_6",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"id\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/updateStatus": {
+			"post": {
+				"tags": ["user-controller"],
+				"summary": "修改人员状态",
+				"description": "修改人员状态",
+				"operationId": "updateStatusUsingPOST_4",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "{\"ids\":\"1,2,3\",\"enabled\":\"1\"}",
+					"required": false,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/user/updateUser": {
+			"post": {
+				"tags": ["user-controller"],
+				"summary": "修改人员接口",
+				"description": "修改人员接口",
+				"operationId": "updateUserUsingPOST",
+				"consumes": ["application/json"],
+				"produces": ["*/*"],
+				"parameters": [{
+					"in": "body",
+					"name": "info",
+					"description": "info",
+					"required": true,
+					"schema": {
+						"type": "string"
+					}
+				}],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/SQApiResponse?Map?string,object??"
+						}
+					},
+					"201": {
+						"description": "Created"
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"SQApiResponse?List?RoleUser??": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/RoleUser"
+					}
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"User": {
+			"type": "object",
+			"properties": {
+				"checked": {
+					"type": "boolean"
+				},
+				"createBy": {
+					"type": "string"
+				},
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"deptCode": {
+					"type": "string"
+				},
+				"deptName": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"enabled": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"gender": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"id": {
+					"type": "string"
+				},
+				"idno": {
+					"type": "string"
+				},
+				"lastLoginTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"login": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"objCode": {
+					"type": "string"
+				},
+				"objName": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				},
+				"position": {
+					"type": "string"
+				},
+				"positionName": {
+					"type": "string"
+				}
+			}
+		},
+		"Dept": {
+			"type": "object",
+			"properties": {
+				"children": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/User"
+					}
+				},
+				"code": {
+					"type": "string"
+				},
+				"createBy": {
+					"type": "string"
+				},
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"enabled": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"parentCode": {
+					"type": "string"
+				},
+				"parentName": {
+					"type": "string"
+				},
+				"sortIndex": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"SQApiResponse?PageInfo?Config??": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"$ref": "#/definitions/PageInfo?Config?"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"Config": {
+			"type": "object",
+			"properties": {
+				"createBy": {
+					"type": "string"
+				},
+				"createName": {
+					"type": "string"
+				},
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"description": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"sortIndex": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"value": {
+					"type": "string"
+				}
+			}
+		},
+		"PageInfo?Role?": {
+			"type": "object",
+			"properties": {
+				"endRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"firstPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"hasNextPage": {
+					"type": "boolean"
+				},
+				"hasPreviousPage": {
+					"type": "boolean"
+				},
+				"isFirstPage": {
+					"type": "boolean"
+				},
+				"isLastPage": {
+					"type": "boolean"
+				},
+				"lastPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Role"
+					}
+				},
+				"navigatePages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"navigatepageNums": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"nextPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"orderBy": {
+					"type": "string"
+				},
+				"pageNum": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"prePage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"size": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"startRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"total": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"PageInfo?Menu?": {
+			"type": "object",
+			"properties": {
+				"endRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"firstPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"hasNextPage": {
+					"type": "boolean"
+				},
+				"hasPreviousPage": {
+					"type": "boolean"
+				},
+				"isFirstPage": {
+					"type": "boolean"
+				},
+				"isLastPage": {
+					"type": "boolean"
+				},
+				"lastPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Menu"
+					}
+				},
+				"navigatePages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"navigatepageNums": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"nextPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"orderBy": {
+					"type": "string"
+				},
+				"pageNum": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"prePage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"size": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"startRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"total": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"SQApiResponse?PageInfo?Obj??": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"$ref": "#/definitions/PageInfo?Obj?"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"SQApiResponse?PageInfo?User??": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"$ref": "#/definitions/PageInfo?User?"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"Obj": {
+			"type": "object",
+			"properties": {
+				"address": {
+					"type": "string"
+				},
+				"code": {
+					"type": "string"
+				},
+				"createBy": {
+					"type": "string"
+				},
+				"createDate": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"description": {
+					"type": "string"
+				},
+				"enabled": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"financialPerson": {
+					"type": "string"
+				},
+				"financialPhone": {
+					"type": "string"
+				},
+				"gsCode": {
+					"type": "string"
+				},
+				"hrCode": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"isEnd": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"jqCode": {
+					"type": "string"
+				},
+				"mainBusiness": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"officeManager": {
+					"type": "string"
+				},
+				"parentCode": {
+					"type": "string"
+				},
+				"parentName": {
+					"type": "string"
+				},
+				"plate": {
+					"type": "string"
+				},
+				"registerMoney": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"sortIndex": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"type": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"unitLevel": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"SysLog": {
+			"type": "object",
+			"properties": {
+				"args": {
+					"type": "string"
+				},
+				"createBy": {
+					"type": "string"
+				},
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"endTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"id": {
+					"type": "string"
+				},
+				"ip": {
+					"type": "string"
+				},
+				"log": {
+					"type": "string"
+				},
+				"menuId": {
+					"type": "string"
+				},
+				"menuName": {
+					"type": "string"
+				},
+				"page": {
+					"type": "string"
+				},
+				"record": {
+					"type": "string"
+				},
+				"requestClass": {
+					"type": "string"
+				},
+				"requestInterface": {
+					"type": "string"
+				},
+				"requestMethod": {
+					"type": "string"
+				},
+				"rows": {
+					"type": "string"
+				},
+				"startTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"type": {
+					"type": "string"
+				},
+				"userId": {
+					"type": "string"
+				}
+			}
+		},
+		"Map?string,object?": {
+			"type": "object",
+			"additionalProperties": {
+				"type": "object"
+			}
+		},
+		"SQApiResponse?PageInfo?Dept??": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"$ref": "#/definitions/PageInfo?Dept?"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"Tree": {
+			"type": "object",
+			"properties": {
+				"auditType": {
+					"type": "string"
+				},
+				"beanId": {
+					"type": "string"
+				},
+				"children": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Tree"
+					}
+				},
+				"code": {
+					"type": "string"
+				},
+				"createBy": {
+					"type": "string"
+				},
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"description": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"isMain": {
+					"type": "string"
+				},
+				"level": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"methodType": {
+					"type": "string"
+				},
+				"modelCount": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"name": {
+					"type": "string"
+				},
+				"num": {
+					"type": "string"
+				},
+				"pId": {
+					"type": "string"
+				},
+				"serialUid": {
+					"type": "string"
+				},
+				"sortIndex": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"type": {
+					"type": "string"
+				}
+			}
+		},
+		"Menu": {
+			"type": "object",
+			"properties": {
+				"checked": {
+					"type": "boolean"
+				},
+				"children": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Menu"
+					}
+				},
+				"createBy": {
+					"type": "string"
+				},
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"description": {
+					"type": "string"
+				},
+				"enabled": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"icon": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"param": {
+					"type": "string"
+				},
+				"parentId": {
+					"type": "string"
+				},
+				"parentName": {
+					"type": "string"
+				},
+				"sortIndex": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"url": {
+					"type": "string"
+				}
+			}
+		},
+		"SQApiResponse?object?": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"type": "object"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"PageInfo?Dict?": {
+			"type": "object",
+			"properties": {
+				"endRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"firstPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"hasNextPage": {
+					"type": "boolean"
+				},
+				"hasPreviousPage": {
+					"type": "boolean"
+				},
+				"isFirstPage": {
+					"type": "boolean"
+				},
+				"isLastPage": {
+					"type": "boolean"
+				},
+				"lastPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Dict"
+					}
+				},
+				"navigatePages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"navigatepageNums": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"nextPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"orderBy": {
+					"type": "string"
+				},
+				"pageNum": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"prePage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"size": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"startRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"total": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"PageInfo?Config?": {
+			"type": "object",
+			"properties": {
+				"endRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"firstPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"hasNextPage": {
+					"type": "boolean"
+				},
+				"hasPreviousPage": {
+					"type": "boolean"
+				},
+				"isFirstPage": {
+					"type": "boolean"
+				},
+				"isLastPage": {
+					"type": "boolean"
+				},
+				"lastPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Config"
+					}
+				},
+				"navigatePages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"navigatepageNums": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"nextPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"orderBy": {
+					"type": "string"
+				},
+				"pageNum": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"prePage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"size": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"startRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"total": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"PageInfo?User?": {
+			"type": "object",
+			"properties": {
+				"endRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"firstPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"hasNextPage": {
+					"type": "boolean"
+				},
+				"hasPreviousPage": {
+					"type": "boolean"
+				},
+				"isFirstPage": {
+					"type": "boolean"
+				},
+				"isLastPage": {
+					"type": "boolean"
+				},
+				"lastPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/User"
+					}
+				},
+				"navigatePages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"navigatepageNums": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"nextPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"orderBy": {
+					"type": "string"
+				},
+				"pageNum": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"prePage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"size": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"startRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"total": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"UserJob": {
+			"type": "object",
+			"properties": {
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"deptId": {
+					"type": "string"
+				},
+				"deptName": {
+					"type": "string"
+				},
+				"enabled": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				},
+				"jobName": {
+					"type": "string"
+				},
+				"objId": {
+					"type": "string"
+				},
+				"objName": {
+					"type": "string"
+				},
+				"pageNo": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"SQApiResponse?Config?": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"$ref": "#/definitions/Config"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"SQApiResponse?Map?string,object??": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"type": "object"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"SQApiResponse?PageInfo?Menu??": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"$ref": "#/definitions/PageInfo?Menu?"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"PageInfo?Obj?": {
+			"type": "object",
+			"properties": {
+				"endRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"firstPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"hasNextPage": {
+					"type": "boolean"
+				},
+				"hasPreviousPage": {
+					"type": "boolean"
+				},
+				"isFirstPage": {
+					"type": "boolean"
+				},
+				"isLastPage": {
+					"type": "boolean"
+				},
+				"lastPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Obj"
+					}
+				},
+				"navigatePages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"navigatepageNums": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"nextPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"orderBy": {
+					"type": "string"
+				},
+				"pageNum": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"prePage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"size": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"startRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"total": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"PageInfo?Dept?": {
+			"type": "object",
+			"properties": {
+				"endRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"firstPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"hasNextPage": {
+					"type": "boolean"
+				},
+				"hasPreviousPage": {
+					"type": "boolean"
+				},
+				"isFirstPage": {
+					"type": "boolean"
+				},
+				"isLastPage": {
+					"type": "boolean"
+				},
+				"lastPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Dept"
+					}
+				},
+				"navigatePages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"navigatepageNums": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"nextPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"orderBy": {
+					"type": "string"
+				},
+				"pageNum": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"prePage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"size": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"startRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"total": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"Role": {
+			"type": "object",
+			"properties": {
+				"createBy": {
+					"type": "string"
+				},
+				"createName": {
+					"type": "string"
+				},
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"description": {
+					"type": "string"
+				},
+				"enabled": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"objCode": {
+					"type": "string"
+				},
+				"sortIndex": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"sysRoleType": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"type": {
+					"type": "integer",
+					"format": "int32"
+				}
+			}
+		},
+		"Dict": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"createBy": {
+					"type": "string"
+				},
+				"createTime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"id": {
+					"type": "string"
+				},
+				"key": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"parentKey": {
+					"type": "string"
+				},
+				"parentValue": {
+					"type": "string"
+				},
+				"speIdentification": {
+					"type": "string"
+				},
+				"value": {
+					"type": "string"
+				}
+			}
+		},
+		"SQApiResponse?List?Tree??": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Tree"
+					}
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"RoleUser": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"roleId": {
+					"type": "string"
+				},
+				"userId": {
+					"type": "string"
+				}
+			}
+		},
+		"SQApiResponse?PageInfo?Dict??": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"$ref": "#/definitions/PageInfo?Dict?"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"PageInfo?Map?string,object??": {
+			"type": "object",
+			"properties": {
+				"endRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"firstPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"hasNextPage": {
+					"type": "boolean"
+				},
+				"hasPreviousPage": {
+					"type": "boolean"
+				},
+				"isFirstPage": {
+					"type": "boolean"
+				},
+				"isLastPage": {
+					"type": "boolean"
+				},
+				"lastPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"list": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Map?string,object?"
+					}
+				},
+				"navigatePages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"navigatepageNums": {
+					"type": "array",
+					"items": {
+						"type": "integer",
+						"format": "int32"
+					}
+				},
+				"nextPage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"orderBy": {
+					"type": "string"
+				},
+				"pageNum": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pageSize": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"pages": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"prePage": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"size": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"startRow": {
+					"type": "integer",
+					"format": "int32"
+				},
+				"total": {
+					"type": "integer",
+					"format": "int64"
+				}
+			}
+		},
+		"SQApiResponse": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"type": "object"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"SQApiResponse?PageInfo?Role??": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"$ref": "#/definitions/PageInfo?Role?"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"SQApiResponse?PageInfo?Map?string,object???": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"$ref": "#/definitions/PageInfo?Map?string,object??"
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		},
+		"SQApiResponse?List?Obj??": {
+			"type": "object",
+			"properties": {
+				"code": {
+					"type": "string"
+				},
+				"data": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Obj"
+					}
+				},
+				"message": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}
